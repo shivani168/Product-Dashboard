@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+Features Overview
+1. Product List View
+Displays a list of products fetched from an API.
+Each product card includes basic details like name, price, category, and an image.
+Supports infinite scrolling to dynamically load more products as you scroll.
+2. Filtering and Sorting
+Filters:
+By category: Narrow down the product list based on categories.
+By price range: Set minimum and maximum prices to filter products.
+By rating: Select products based on their ratings.
+Sorting:
+Fresh Arrivals
+Price Low to High
+Price High to Low
+Seamless integration: Filters and sorting options work together without refreshing the page.
+3. Product Details Modal
+Click on any product to view more details in a popup modal.
+The modal dynamically loads additional information for better performance.
+4. Responsive Design
+Adapts seamlessly to both desktop and mobile views.
+5. Optimized Performance
+Used modular, reusable components for maintainable code.
+Images and components are lazy-loaded to reduce load time.
+Optimized to minimize re-renders and unnecessary API calls.
+6. Error Handling and Loading States
+Displays user-friendly error messages if API calls fail.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+How to Run the Application
+1. Clone the Repository
+bash
+Copy code
+git clone <repository-url>
+cd <project-folder>
+2. Install Dependencies
+bash
+Copy code
+npm install
+3. Start the Development Server
+bash
+Copy code
+npm start
+The app will run locally at http://localhost:3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project Structure
+The project is organized into various directories to ensure a clean, modular, and maintainable structure. Here's a detailed breakdown of each directory and its purpose:
 
-### `npm run build`
+ecommerce-dashboard/
+The root directory of the project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+src/
+The main directory for all source code files.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+components/
+Contains reusable UI components. This directory is divided into two subdirectories:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+containers/:
+These components handle logic and state management. They act as the connection between the application's business logic and the UI.
 
-### `npm run eject`
+ProductListContainer.tsx: Handles logic for fetching and managing the list of products.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+presenters/:
+These are purely UI components responsible for rendering the visual elements of the application. They are stateless and reusable.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ProductList.tsx: Displays the list of products in a grid or list view.
+ProductCard.tsx: Represents individual product items with basic details like name, price, and image.
+ProductDetailsModal.tsx: Displays detailed information about a single product in a modal popup.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+context/
+This directory contains files related to the Context API, which is used for managing global states like product filtering, user authentication, and UI themes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ProductContext.tsx: Manages the state and logic for product-related features such as filtering, sorting, and infinite scrolling.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+hooks/
+Custom React hooks used throughout the application for reusable logic.
+useFetchProducts.ts: Manages API calls to fetch all product data, along with loading and error states.
+useFetchProductById.ts: Manages API calls to fetch product data by id, along with loading and error states.
+useFetchProductsWithSort.ts: Manages API calls to fetch product data by asc or desc sorting, along with loading and error states
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+pages/
+This directory contains full-page components. Each file represents a single page in the application.
+Dashboard.tsx: The main page displaying the product list and all associated functionality, such as filtering, sorting, and modals.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+styles/
+Contains all global and component-specific styles.
+ProductListContainer.css: Defines the application's ProductListContainer CSS styles, such as typography, layout, and responsive design rules.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+utils/
+This directory holds utility functions and constants used across the application.
+api.ts: Handles API configurations and requests for fetching product data.
+constants.ts: Stores static values like category names, rating options, and API URLs.
+types.ts: Contains interface type for product
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+App.tsx
+The root component of the application. It defines the layout and renders the main content, including global providers like context.
 
-### Deployment
+index.tsx
+The entry point of the application. It renders the App component into the DOM and initializes React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Key Technologies Used
+React.js for building the user interface.
+CSS/SCSS for styling and responsiveness.
+fetch for API calls.
+React Hooks for state and lifecycle management.
+
+
+Best Practices Followed
+Code Structure: Organized and modular for maintainability.
+Design Patterns: Container-Presenter pattern for separation of logic and UI.
+Performance: Lazy loading, optimized re-renders, and efficient API usage.
+
