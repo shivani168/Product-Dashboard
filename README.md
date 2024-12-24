@@ -123,3 +123,19 @@ Code Structure: Organized and modular for maintainability.
 Design Patterns: Container-Presenter pattern for separation of logic and UI.
 Performance: Lazy loading, optimized re-renders, and efficient API usage.
 
+
+Instructions for setup 
+Clone the Repository-
+
+Open your terminal and run:
+git clone https://github.com/shivani168/Product-Dashboard.git
+
+Navigate into the project directory:
+cd Product-Dashboard
+
+Install Dependencies- 
+npm install
+
+Start the Development Server- 
+npm start
+
